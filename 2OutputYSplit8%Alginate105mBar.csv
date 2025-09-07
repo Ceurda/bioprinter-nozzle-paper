@@ -1,6 +1,0 @@
-Region,Static Pressure [Pa],Velocity Magnitude [m/s],Wall Shear Stress [Pa]
-inlet,766.46794,3.5357124,
-outletleft,-20.259794,0.92084624,
-outletright,-19.499054,0.92726866,
-Net,112.08138,1.362332,
-wall-2_split_y_split_15_degree_body1,,,252.2433
