@@ -1,0 +1,10 @@
+Region,Static Pressure [Pa],Velocity Magnitude [m/s],Wall Shear Stress [Pa]
+bottomleftoutlet1,-0.016388944,0.069058494,
+bottomleftoutlet2,-0.0030020665,0.090516189,
+bottomrightoutlet1,-0.0048384579,0.077261406,
+bottomrightoutlet2,-0.0066409924,0.083890167,
+inlet,-1840.428,3.5690925,
+middleleftoutlet,-11.853421,0.7441001,
+middlerightoutlet,-11.409777,0.76056102,
+Net,-105.83816,0.4399787,
+wall-new_top_block_y_split_4_outlet_60_deg_angle_v1:1_body1,,,165.81283
