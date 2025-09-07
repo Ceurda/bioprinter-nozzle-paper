@@ -1,0 +1,10 @@
+Region,Static Pressure [Pa],Velocity Magnitude [m/s],Wall Shear Stress [Pa]
+inlet,-4736.9775,4.2639328,
+leftbottomoutlet1,-0.0085767209,0.19960607,
+leftbottomoutlet2,-5.0373176e-11,0.25695586,
+leftmiddleoutlet,-44.374631,1.1160804,
+rightbottomoutlet1,-2.1222297e-09,0.18057293,
+rightbottomoutlet2,-3.8546563e-10,0.26806011,
+rightmidoutlet,-43.876668,1.1363762,
+Net,-324.2102,0.69994911,
+wall-luerlock_alone_v2:1_body1,,,164.95533
