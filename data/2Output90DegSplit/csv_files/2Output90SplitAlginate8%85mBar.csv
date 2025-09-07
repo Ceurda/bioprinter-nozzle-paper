@@ -1,0 +1,7 @@
+Region,Static Pressure [Pa],Velocity Magnitude [m/s],Wall Shear Stress [Pa]
+inlet,363.4207,3.0885501,
+outletleft,-2.8103768e-07,0.51953457,
+outletmiddle,-51.978826,1.1740871,
+outletright,-1.5724417e-06,0.51776212,
+Net,41.387239,0.97768463,
+wall-1.35_needle_design_v2:1_body2,,,160.30335
