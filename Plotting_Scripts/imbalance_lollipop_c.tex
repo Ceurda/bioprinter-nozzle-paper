@@ -1,0 +1,61 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+% shared styles
+\pgfplotsset{
+  lollipopnum/.style={
+    width=\linewidth, height=4.5cm,
+    xmin=0, xmajorgrids, ymajorgrids,
+    xlabel={Difference [\%]},
+    yticklabel pos=left, y dir=normal,
+    tick align=outside,
+    every axis/.append style={font=\footnotesize},
+    every tick label/.append style={font=\scriptsize},
+    yticklabel style={text width=30mm, align=right},
+    scaled ticks=false, clip=false,
+    enlarge x limits={abs=0.6}
+  },
+  lolli line/.style={semithick, draw=blue!60},
+  lolli dot/.style={only marks, mark=*, mark size=2.2pt, draw=blue!60, fill=blue!60}
+}
+
+\begin{tikzpicture}
+\begin{axis}[
+  lollipopnum, xmax=100, unbounded coords=jump,
+  ymin=0, ymax=6,
+  ytick={5,4,3,2,1},
+  yticklabels={
+    {GelMA 10\%\\105 mbar},
+    {MeHA 2\%\\105 mbar},
+    {Alginate 8\%\\105 mbar},
+    {Alginate 8\%\\85 mbar},
+    {Alginate 8\%\\65 mbar}
+  },
+  y dir=reverse
+]
+  % stems (single path with NaN breaks)
+  \addplot[lolli line] coordinates {
+    (0,5) (57.55908996,5) (nan,nan)
+    (0,4) (11.11198538,4) (nan,nan)
+    (0,3) (38.66003807,3) (nan,nan)
+    (0,2) (57.24145439,2) (nan,nan)
+    (0,1) (92.38623214,1)
+  };
+
+  % dots + labels
+  \addplot+[lolli dot, nodes near coords, point meta=rawx,
+    every node near coord/.style={anchor=west, xshift=2pt, font=\scriptsize},
+    nodes near coords*={\pgfmathprintnumber{\pgfplotspointmeta}\%}] coordinates {
+    (57.55908996,5)
+    (11.11198538,4)
+    (38.66003807,3)
+    (57.24145439,2)
+    (92.38623214,1)
+  };
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
