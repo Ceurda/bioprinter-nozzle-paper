@@ -1,0 +1,192 @@
+% groupplot_no_style.tex -- self-contained standalone figure (no shared style needed)
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{authblk}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18} % or 'newest'
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{plotmarks}
+\usepackage{pifont}   % for \ding
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,fit}
+
+\begin{figure}[h!]
+
+% shared styles
+\pgfkeys{/pgf/number format/.cd, fixed, precision=1, 1000 sep={}}
+\pgfplotsset{
+  lollipopnum/.style={
+    width=\linewidth, height=4.5cm,
+    xmin=0, xmajorgrids, ymajorgrids,
+    xlabel={Difference [\%]},
+    yticklabel pos=left, y dir=normal,
+    tick align=outside,
+    every axis/.append style={font=\footnotesize},
+    every tick label/.append style={font=\scriptsize},
+    y tick label style={text width=30mm, align=right},
+    scaled ticks=false, clip=false,
+    enlarge x limits={abs=0.6}
+  },
+  lolli line/.style={semithick, draw=blue!60},
+  lolli dot/.style={only marks, mark=*, mark size=2.2pt, draw=blue!60, fill=blue!60}
+}
+
+% ---------- (a) 90° split, 2 outlets ----------
+\begin{subfigure}[b]{0.48\linewidth}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  lollipopnum, xmax=16, unbounded coords=jump,
+  symbolic y coords={
+    {GelMA 10\%\\105 mbar},
+    {MeHA 2\%\\105 mbar},
+    {Alginate 8\%\\105 mbar},
+    {Alginate 8\%\\85 mbar},
+    {Alginate 8\%\\65 mbar}
+  },
+  ytick=data
+]
+  \addplot[lolli line] coordinates {
+    (0,{GelMA 10\%\\105 mbar}) (14.7509676,{GelMA 10\%\\105 mbar}) (nan,nan)
+    (0,{MeHA 2\%\\105 mbar})   (1.0558550,{MeHA 2\%\\105 mbar})   (nan,nan)
+    (0,{Alginate 8\%\\105 mbar}) (0.0682919,{Alginate 8\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\85 mbar})  (0.3417441,{Alginate 8\%\\85 mbar})  (nan,nan)
+    (0,{Alginate 8\%\\65 mbar})  (0.6977826,{Alginate 8\%\\65 mbar})
+  };
+  \addplot+[lolli dot, nodes near coords, point meta=rawx,
+    every node near coord/.style={anchor=west, xshift=2pt, font=\scriptsize, text=black},
+    nodes near coords*={\pgfmathprintnumber{\pgfplotspointmeta}\%}] coordinates {
+    (14.7509676,{GelMA 10\%\\105 mbar})
+    (1.0558550,{MeHA 2\%\\105 mbar})
+    (0.0682919,{Alginate 8\%\\105 mbar})
+    (0.3417441,{Alginate 8\%\\85 mbar})
+    (0.6977826,{Alginate 8\%\\65 mbar})
+  };
+\end{axis}
+\end{tikzpicture}
+}
+\caption{90-degree split, 2 outlets.}
+\end{subfigure}\hfill
+% ---------- (b) Y-split, 2 outlets ----------
+\begin{subfigure}[b]{0.48\linewidth}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  lollipopnum, xmax=35, unbounded coords=jump,
+  symbolic y coords={
+    {GelMA 10\%\\105 mbar},
+    {MeHA 2\%\\105 mbar},
+    {Alginate 8\%\\105 mbar},
+    {Alginate 8\%\\85 mbar},
+    {Alginate 8\%\\65 mbar}
+  },
+  ytick=data
+]
+  \addplot[lolli line] coordinates {
+    (0,{GelMA 10\%\\105 mbar}) (31.3199779,{GelMA 10\%\\105 mbar}) (nan,nan)
+    (0,{MeHA 2\%\\105 mbar})   (0.1727551,{MeHA 2\%\\105 mbar})   (nan,nan)
+    (0,{Alginate 8\%\\105 mbar}) (0.6950239,{Alginate 8\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\85 mbar})  (0.5915274,{Alginate 8\%\\85 mbar})  (nan,nan)
+    (0,{Alginate 8\%\\65 mbar})  (1.4091850,{Alginate 8\%\\65 mbar})
+  };
+  \addplot+[lolli dot, nodes near coords, point meta=rawx,
+    every node near coord/.style={anchor=west, xshift=2pt, font=\scriptsize, text=black},
+    nodes near coords*={\pgfmathprintnumber{\pgfplotspointmeta}\%}] coordinates {
+    (31.3199779,{GelMA 10\%\\105 mbar})
+    (0.1727551,{MeHA 2\%\\105 mbar})
+    (0.6950239,{Alginate 8\%\\105 mbar})
+    (0.5915274,{Alginate 8\%\\85 mbar})
+    (1.4091850,{Alginate 8\%\\65 mbar})
+  };
+\end{axis}
+\end{tikzpicture}
+}
+\caption{Y-split, 2 outlets.}
+\end{subfigure}
+
+\vspace{0.8em}
+
+% ---------- (c) 90° split, 4 outlets ----------
+\begin{subfigure}[b]{0.48\linewidth}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  lollipopnum, xmax=100, unbounded coords=jump,
+  symbolic y coords={
+    {GelMA 10\%\\105 mbar},
+    {MeHA 2\%\\105 mbar},
+    {Alginate 8\%\\105 mbar},
+    {Alginate 8\%\\85 mbar},
+    {Alginate 8\%\\65 mbar}
+  },
+  ytick=data
+]
+  \addplot[lolli line] coordinates {
+    (0,{GelMA 10\%\\105 mbar}) (57.55908996,{GelMA 10\%\\105 mbar}) (nan,nan)
+    (0,{MeHA 2\%\\105 mbar})   (11.11198538,{MeHA 2\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\105 mbar}) (38.66003807,{Alginate 8\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\85 mbar})  (57.24145439,{Alginate 8\%\\85 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\65 mbar})  (92.38623214,{Alginate 8\%\\65 mbar})
+  };
+  \addplot+[lolli dot, nodes near coords, point meta=rawx,
+    every node near coord/.style={anchor=west, xshift=2pt, font=\scriptsize, text=black},
+    nodes near coords*={\pgfmathprintnumber{\pgfplotspointmeta}\%}] coordinates {
+    (57.55908996,{GelMA 10\%\\105 mbar})
+    (11.11198538,{MeHA 2\%\\105 mbar})
+    (38.66003807,{Alginate 8\%\\105 mbar})
+    (57.24145439,{Alginate 8\%\\85 mbar})
+    (92.38623214,{Alginate 8\%\\65 mbar})
+  };
+\end{axis}
+\end{tikzpicture}
+}
+\caption{90-degree split, 4 outlets.}
+\end{subfigure}\hfill
+% ---------- (d) Y-split, 4 outlets ----------
+\begin{subfigure}[b]{0.48\linewidth}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+  lollipopnum, xmax=60, unbounded coords=jump,
+  symbolic y coords={
+    {GelMA 10\%\\105 mbar},
+    {MeHA 2\%\\105 mbar},
+    {Alginate 8\%\\105 mbar},
+    {Alginate 8\%\\85 mbar},
+    {Alginate 8\%\\65 mbar}
+  },
+  ytick=data
+]
+  \addplot[lolli line] coordinates {
+    (0,{GelMA 10\%\\105 mbar}) (57.93500175,{GelMA 10\%\\105 mbar}) (nan,nan)
+    (0,{MeHA 2\%\\105 mbar})   (21.52703256,{MeHA 2\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\105 mbar}) (25.36106247,{Alginate 8\%\\105 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\85 mbar})  (26.76138245,{Alginate 8\%\\85 mbar}) (nan,nan)
+    (0,{Alginate 8\%\\65 mbar})  (42.63271043,{Alginate 8\%\\65 mbar})
+  };
+  \addplot+[lolli dot, nodes near coords, point meta=rawx,
+    every node near coord/.style={anchor=west, xshift=2pt, font=\scriptsize, text=black},
+    nodes near coords*={\pgfmathprintnumber{\pgfplotspointmeta}\%}] coordinates {
+    (57.93500175,{GelMA 10\%\\105 mbar})
+    (21.52703256,{MeHA 2\%\\105 mbar})
+    (25.36106247,{Alginate 8\%\\105 mbar})
+    (26.76138245,{Alginate 8\%\\85 mbar})
+    (42.63271043,{Alginate 8\%\\65 mbar})
+  };
+\end{axis}
+\end{tikzpicture}
+}
+\caption{Y-split, 4 outlets.}
+\end{subfigure}
+
+\caption{Outlet imbalance as percent velocity difference across the two or bottom outlets in 90-degree and Y-split designs. Values are relative to the mean of the compared outlets (non-negative).}
+\label{fig:imbalance}
+\end{figure}
