@@ -1,0 +1,87 @@
+\documentclass[tikz]{standalone}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{siunitx}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{plotmarks,arrows.meta,positioning,shapes.geometric,shapes.misc,fit}
+\begin{document}
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=3 by 1, horizontal sep=18mm},
+  width=5.4cm, height=4.8cm,
+  ymajorgrids, xmajorgrids,
+  tick align=outside,
+  xtick=data,
+  xticklabel style={
+    rotate=45,
+    anchor=east,
+    font=\scriptsize
+  },
+  symbolic x coords={
+    {GelMA 10\% 105mBar},
+    {MeHA 2\% 105mBar},
+    {Alginate 8\% 105mBar},
+    {Alginate 8\% 85mBar},
+    {Alginate 8\% 65mBar}
+  },
+  legend cell align=left,
+  legend style={draw=none, fill=none, font=\footnotesize}
+]
+% ----------------- Row 2: FOUR OUTLETS -----------------
+
+% (2,1) Pressure 4-out
+\nextgroupplot[title={Static Pressure (Pa)}, ylabel={Pressure [Pa]}]
+\addplot+[only marks, mark=o, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar}, 185.22)
+  ({MeHA 2\% 105mBar},   -87.10)
+  ({Alginate 8\% 105mBar},-324.21)
+  ({Alginate 8\% 85mBar}, -145.97)
+  ({Alginate 8\% 65mBar},  35.97)
+};
+\addplot+[only marks, mark=triangle*, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar},   81.54)
+  ({MeHA 2\% 105mBar},   -122.53)
+  ({Alginate 8\% 105mBar},-289.20)
+  ({Alginate 8\% 85mBar}, -105.84)
+  ({Alginate 8\% 65mBar},   76.59)
+};
+
+% (2,2) Velocity 4-out
+\nextgroupplot[title={Velocity Magnitude (m/s)}, ylabel={Velocity [m/s]}]
+\addplot+[only marks, mark=o, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar}, 0.6051)
+  ({MeHA 2\% 105mBar},   0.6349)
+  ({Alginate 8\% 105mBar},0.6999)
+  ({Alginate 8\% 85mBar}, 0.5737)
+  ({Alginate 8\% 65mBar}, 0.4211)
+};
+\addplot+[only marks, mark=triangle*, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar}, 0.5578)
+  ({MeHA 2\% 105mBar},   0.5211)
+  ({Alginate 8\% 105mBar},0.5434)
+  ({Alginate 8\% 85mBar}, 0.4400)
+  ({Alginate 8\% 65mBar}, 0.3061)
+};
+
+% (2,3) WSS 4-out
+\nextgroupplot[title={Wall Shear Stress (Pa)}, ylabel={WSS [Pa]}]
+\addplot+[only marks, mark=o, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar}, 114.81)
+  ({MeHA 2\% 105mBar},   148.78)
+  ({Alginate 8\% 105mBar},164.96)
+  ({Alginate 8\% 85mBar}, 144.70)
+  ({Alginate 8\% 65mBar}, 122.10)
+};
+\addplot+[only marks, mark=triangle*, mark size=2.5pt] coordinates {
+  ({GelMA 10\% 105mBar},  94.19)
+  ({MeHA 2\% 105mBar},   158.16)
+  ({Alginate 8\% 105mBar},187.51)
+  ({Alginate 8\% 85mBar}, 165.81)
+  ({Alginate 8\% 65mBar}, 137.01)
+};
+\end{groupplot}
+\end{tikzpicture}
+\end{document}
