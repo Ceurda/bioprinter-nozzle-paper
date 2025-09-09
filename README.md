@@ -9,13 +9,14 @@ This repository contains all supplementary files associated with the paper:
 ---
 
 ## 📂 Repository Structure
+```text
 .
-├── Plotting_Scripts/ # LaTeX/TikZ/PGFPlots sources for figures
-├── STL_Files/ # CAD geometries (STL format)
-├── data/ # Simulation outputs (CSV per–outlet metrics)
-├── figure_source/ # High-resolution PDFs of manuscript figures
-└── workbench_journals/ # ANSYS Workbench journal files (meshing & setup)
-
+├── Plotting_Scripts/    # LaTeX/TikZ/PGFPlots sources for figures
+├── STL_Files/           # CAD geometries (STL format)
+├── data/                # Simulation outputs (CSV per–outlet metrics)
+├── figure_source/       # High-resolution PDFs of manuscript figures
+└── workbench_journals/  # ANSYS Workbench journal files (meshing & setup)
+```
 ---
 
 ## 📊 Contents
