@@ -23,7 +23,7 @@ Each Zenodo record contains the full `.wbpj` project, the corresponding `*_files
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 ```text
 .
 ├── Plotting_Scripts/        # LaTeX/TikZ/PGFPlots sources for figures
