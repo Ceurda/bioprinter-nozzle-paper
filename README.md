@@ -77,6 +77,12 @@ Each Zenodo record contains the full `.wbpj` project, the corresponding `*_files
 
 ---
 
+## **License**
+  - Code and plotting scripts are released under the MIT License.
+  - Data, meshes, and figures are released under Creative Commons Attribution 4.0 (CC BY 4.0) unless otherwise stated.
+
+---
+
 ## Notes
 
 - Rheology parameters (K, n, μ) and solver settings are summarized in **Table 2 of the paper**.  
