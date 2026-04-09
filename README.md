@@ -8,21 +8,6 @@ This repository contains all supplementary files associated with the paper:
 
 ---
 
-##  Archival Datasets (Zenodo)
-
-Some simulation packages are too large to host reliably on GitHub (complete ANSYS Workbench projects contain `.wbpj` plus large `_files` directories). For long-term preservation and citation, complete project archives for the 4-outlet nozzle cases are hosted on **Zenodo**.
-
-**Zenodo records:**
-- **4-outlet Y-split nozzle**  
-  Zenodo DOI: `10.5281/zenodo.XXXXXXX` *(replace with DOI)*
-
-- **4-outlet 90° split nozzle**  
-  Zenodo DOI: `10.5281/zenodo.XXXXXXX` *(replace with DOI)*
-
-Each Zenodo record contains the full `.wbpj` project, the corresponding `*_files` directory, exported FLUENT mesh files, and solution data exactly as used in the study.
-
----
-
 ## Repository Structure
 ```text
 .
@@ -81,12 +66,4 @@ Each Zenodo record contains the full `.wbpj` project, the corresponding `*_files
   - Code and plotting scripts are released under the MIT License.
   - Data, meshes, and figures are released under Creative Commons Attribution 4.0 (CC BY 4.0) unless otherwise stated.
 
----
-
-## Notes
-
-- Rheology parameters (K, n, μ) and solver settings are summarized in **Table 2 of the paper**.  
-- Density values are literature-informed assumptions; bounds for K and n are discussed in the sensitivity analysis.  
-- Files are provided as used in the study to the extent permitted by size constraints and standard sharing practice.
-  
 ---
